@@ -1,3 +1,5 @@
+// MỞ THƯ MỤC KHI CLICK VÀO ẢNH ĐỂ CHỌN ẢNH THAY ĐỔI
+
 document.getElementById('imageToChange').addEventListener('click', function() {
     document.getElementById('fileInput').click(); // Kích hoạt input file khi ảnh được click
 });
@@ -15,6 +17,7 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 });
 
 
+// HIỆN Ô INPUT ĐỂ THAY ĐỔI NỘI DUNG: TÊN TRUYỆN, TÁC GIẢ 
 document.addEventListener('DOMContentLoaded', function () {
     var editableContents = document.querySelectorAll('.editableContent');
 
