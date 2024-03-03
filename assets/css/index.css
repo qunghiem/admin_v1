@@ -10,23 +10,50 @@
     height: 100vh;
     position: fixed;
 }
+
 .main .manager .hello-admin {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
     margin-bottom: 40px;
+
+    /* thêm */
+    overflow: hidden;
+    /* Giữ cho text không bị tràn ra ngoài container */
+    position: relative;
+    /* Cần thiết cho animation */
+    width: 100%;
+    /* Đặt chiều rộng của container */
+
 }
+
 .main .manager .hello-admin h1 {
     color: var(--white);
     font-size: 24px;
     text-align: center;
     margin-bottom: 15px;
-}
 
+    /* thêm */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    /* Loại bỏ margin mặc định */
+
+    /* Tạo animation chạy ngang */
+    animation: hello-admin 5s linear infinite;
+}
+/* thêm  */
+@keyframes hello-admin {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+  }
+/* thêm */
 .main .manager .hello-admin img {
     width: 100px;
     height: 100px;
+    margin-top: 50px;
 }
 
 .main .manager .menu {
@@ -43,6 +70,7 @@
     border-bottom: 0.1px solid var(--color-manager);
 
 }
+
 .main .manager .menu li:hover {
     background-color: var(--color-manager);
 }
@@ -55,11 +83,13 @@
 .main .manager .menu li a i {
     margin-right: 10px;
 }
+
 .main .manager .log_out {
     position: absolute;
     bottom: 8vh;
-    left: 50%; /* Đặt vị trí bắt đầu từ giữa của phần tử cha */
-  transform: translateX(-50%);                                                                                                                                                                                                                                                                              
+    left: 50%;
+    /* Đặt vị trí bắt đầu từ giữa của phần tử cha */
+    transform: translateX(-50%);
 
 }
 
@@ -67,8 +97,9 @@
 .main .manager .log_out span {
     color: var(--white);
     font-size: 16px;
-    
+
 }
+
 /* END MANAGER  */
 
 
@@ -105,7 +136,7 @@
 .main .dashboard .header .modul {
     display: flex;
     justify-content: space-between;
-    align-items: center;    
+    align-items: center;
 }
 
 .main .dashboard .header .modul a {
@@ -148,37 +179,49 @@
 .main .dashboard .content input {
     transform: scale(1.5);
 }
+
 .main .dashboard .content .table {
     background-color: var(--white);
 }
 
 /* TABLE  */
 
-table, th, tr, td {
+table,
+th,
+tr,
+td {
     border: 1px solid #ccc;
     border-collapse: collapse;
     color: var(--color-manager);
 }
+
 th {
     font-size: 20px;
 }
+
 td {
     font-size: 17px;
     font-weight: 500;
 }
+
 table {
     width: 100%;
-    border-collapse: collapse; /* Loại bỏ khoảng cách giữa các ô */
+    border-collapse: collapse;
+    /* Loại bỏ khoảng cách giữa các ô */
 }
-th, td {
+
+th,
+td {
     text-align: center;
     padding: 8px;
 }
+
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
+
 /* Thêm border ngang cho mỗi hàng ngoại trừ hàng đầu tiên */
-tr + tr {
+tr+tr {
     border-top: 1px solid #ddd;
 }
 
