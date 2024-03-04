@@ -1,20 +1,20 @@
 // MỞ THƯ MỤC KHI CLICK VÀO ẢNH ĐỂ CHỌN ẢNH THAY ĐỔI
 
-document.getElementById('imageToChange').addEventListener('click', function() {
-    document.getElementById('fileInput').click(); // Kích hoạt input file khi ảnh được click
-});
+// document.querySelectorAll('.imageToChange').addEventListener('click', function() {
+//     document.querySelectorAll('.fileInput').click(); // Kích hoạt input file khi ảnh được click
+// });
 
-document.getElementById('fileInput').addEventListener('change', function(event) {
-    if (event.target.files && event.target.files[0]) {
-        var reader = new FileReader();
+// document.querySelectorAll('.fileInput').addEventListener('change', function(event) {
+//     if (event.target.files && event.target.files[0]) {
+//         var reader = new FileReader();
         
-        reader.onload = function(e) {
-            document.getElementById('imageToChange').src = e.target.result;
-        };
+//         reader.onload = function(e) {
+//             document.querySelectorAll('imageToChange').src = e.target.result;
+//         };
         
-        reader.readAsDataURL(event.target.files[0]); // Đọc file ảnh được chọn
-    }
-});
+//         reader.readAsDataURL(event.target.files[0]); // Đọc file ảnh được chọn
+//     }
+// });
 
 
 // HIỆN Ô INPUT ĐỂ THAY ĐỔI NỘI DUNG: TÊN TRUYỆN, TÁC GIẢ 
@@ -47,4 +47,27 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+});
+
+
+const imagePreviews = document.querySelectorAll('.image-preview');
+const imageUploads = document.querySelectorAll('.image-upload');
+
+imagePreviews.forEach(function(imagePreview, index) {
+  imagePreview.addEventListener('click', function() {
+    imageUploads[index].click();
+  });
+});
+
+imageUploads.forEach(function(imageUpload) {
+  imageUpload.addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function() {
+        imageUpload.previousElementSibling.setAttribute('src', reader.result);
+      }
+      reader.readAsDataURL(file);
+    }
+  });
 });
